@@ -1,13 +1,29 @@
 // CSCI-40 Final Project
-// Author: [Your Name Here]
+// Author: Luis Amaro
 
 /* 
  * Description:
  *
 */
-
 #include <iostream>
+#include <fstream>
+#include <string>
+using  namespace std;
 
-int main() {
-    return 0;
+class ComputerData
+{
+private:
+	float cost;
+	string partName;
+	int amount;
+
+public:
+
+};
+
+int main() 
+{
+   
+	
+	return 0;
 }
