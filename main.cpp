@@ -39,6 +39,32 @@ int main()
 	float partCost; // will be a placeholder for cost to have the inputted data be sent to the class member
 	string nameOfPart;  // will be a placeholder for partName to have the inputted data be sent to the class member
 	int amount;  // will be a placeholder for numberUsed to have the inputted data be sent to the class member
+
+	cout << "Will you be ordering parts, building a a full PC, or reading in an order/build file?" << endl 
+		<< "Type the matching number to proceed." << endl << "1. Order" << endl << "2. Build"
+		<< endl << "3. Read file" << endl;
+	int option;
+	bool breakLoop = false;
+	while (breakLoop == false)
+	{
+		
+			cin >> option;
+		if (option == 1)
+		{
+			breakLoop = true;
+		}
+		else if (option == 2)
+		{
+			breakLoop = true;
+		}
+		else if (option == 3)
+		{
+			breakLoop = true;
+		}
+		else
+			cout << "Invalid choice try again" << endl;
+		
+	}
 	
 	return 0;
 }
