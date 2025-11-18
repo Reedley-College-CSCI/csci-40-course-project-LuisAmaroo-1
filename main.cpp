@@ -18,6 +18,7 @@ if they wish to remove or add parts or can be used to cancel the order entirely.
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <limits>
 using  namespace std;
 
 const int tempLimit = 50;
@@ -30,7 +31,15 @@ private:
 	int numberUsed;
 	
 public:
-
+	ComputerData()
+	{
+		partName = "";
+		cost = 0;
+		numberUsed = 0;
+	}
+	string getItemName(string name);
+	float getItemCost(float itemCost);
+	int getNumItem(int amount);
 };
 
 int main() 
@@ -47,24 +56,48 @@ int main()
 	bool breakLoop = false;
 	while (breakLoop == false)
 	{
-		
-			cin >> option;
+		cin >> option;
 		if (option == 1)
 		{
+			
 			breakLoop = true;
 		}
 		else if (option == 2)
 		{
+			
 			breakLoop = true;
 		}
 		else if (option == 3)
 		{
+			
 			breakLoop = true;
 		}
 		else
+		{
+			if (cin.fail())
+			{
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+			}
 			cout << "Invalid choice try again" << endl;
+		}
 		
 	}
 	
 	return 0;
+}
+
+// ----------------------------------Functions------------------------------------
+
+string ComputerData::getItemName(string name)
+{
+
+}
+float ComputerData::getItemCost(float itemCost)
+{
+
+}
+int ComputerData::getNumItem(int amount)
+{
+
 }
