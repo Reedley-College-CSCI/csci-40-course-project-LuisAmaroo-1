@@ -53,14 +53,15 @@ int main()
 	string filename;
 	string filePath;
 
-	cout << "Will you be ordering parts, building a a full PC, or reading in an order/build file?" << endl 
-		<< "Type the matching number to proceed." << endl << "1. Order" << endl << "2. Build"
-		<< endl << "3. Read file" << endl;
+	
 	int option;
 	bool breakLoop = false;
 	while (breakLoop == false)
 	{
-		cin >> option; 
+		
+		cout << "Will you be ordering parts, building a a full PC, or reading in an order/build file?" << endl
+			<< "Type the matching number to proceed." << endl << "1. Order" << endl << "2. Build"
+			<< endl << "3. Read file" << endl;cin >> option;
 		if (option == 1) // Order root choice
 		{
 			int partChoice;
@@ -69,8 +70,81 @@ int main()
 				<< endl << "3. GPU (Graphics Processing Unit)" << endl << "4. PSU (Power Supply Unit)" 
 				<< endl << "4. Motherboards" << endl << "5. Storage Devices" << endl << "6. Computer Fans"
 				<< endl << "7. Cords/Wires" << endl << "8. View cart" << endl << "9. To proceed to checkout" 
-				<< endl << "0. To cancel order and return to menu";
+				<< endl << "0. To cancel order and return to menu" << endl;
+			cout << "You can choose a max amount of 50 parts" << endl;
 			cin >> partChoice;
+			while (true)
+			{
+				if (cin.fail())
+				{
+					cin.clear();
+					cin.ignore(numeric_limits<streamsize>::max(), '\n');
+					cout << "Invalid input! Please enter a number.\n";
+					cin >> partChoice;
+					continue;
+				}
+
+				if (partChoice == 0) // exit
+				{
+					cout << "Returning to main menu.\n";
+					breakLoop = false;
+					break;
+				}
+
+				if (partChoice == 1)
+				{
+					// RAM
+				}
+				else if (partChoice == 2) // CPU
+				{
+				
+				}
+				else if (partChoice == 3) // GPUs
+				{
+				
+				}
+				else if (partChoice == 4)// PSUs
+				{
+				
+				}
+				else if (partChoice == 5) // Motherboards
+				{
+				
+				}
+				else if (partChoice == 6) // Storage devices
+				{
+
+				}
+				else if (partChoice == 7) // Cords/Wires
+				{
+
+				}
+				else if (partChoice == 8) //Cart
+				{
+
+				}
+				else if (partChoice == 9) // Checkout
+				{
+					breakLoop = true;
+					break; //To do add a method to checkout. Temp break used
+				}
+				else
+				{
+					cout << "Invalid choice! Try again.\n";
+				}
+				cout << "Type number of which part(s)/action you would like to select:" << endl;
+				cout << "1. RAM(Random Access Memory)" << endl << "2. CPU (Central Processing Unit)"
+					<< endl << "3. GPU (Graphics Processing Unit)" << endl << "4. PSU (Power Supply Unit)"
+					<< endl << "4. Motherboards" << endl << "5. Storage Devices" << endl << "6. Computer Fans"
+					<< endl << "7. Cords/Wires" << endl << "8. View cart" << endl << "9. To proceed to checkout"
+					<< endl << "0. To cancel order and return to menu" << endl;
+				cin >> partChoice;
+			}
+			if (partChoice == 0)
+			{
+				cout << "Returning to main menu" << endl;
+				breakLoop = false;
+			}
 
 		}
 		else if (option == 2) //Build root choice
