@@ -37,9 +37,10 @@ public:
 		cost = 0;
 		numberUsed = 0;
 	}
-	string getItemName(string name);
-	float getItemCost(float itemCost);
-	int getNumItem(int amount);
+	void getItemName(string name);
+	void getItemCost(float itemCost);
+	void getNumItem(int amount);
+	void printItems();
 };
 
 int main() 
@@ -48,6 +49,9 @@ int main()
 	float partCost; // will be a placeholder for cost to have the inputted data be sent to the class member
 	string nameOfPart;  // will be a placeholder for partName to have the inputted data be sent to the class member
 	int amount;  // will be a placeholder for numberUsed to have the inputted data be sent to the class member
+	int totalNumParts = 0; 
+	string filename;
+	string filePath;
 
 	cout << "Will you be ordering parts, building a a full PC, or reading in an order/build file?" << endl 
 		<< "Type the matching number to proceed." << endl << "1. Order" << endl << "2. Build"
@@ -69,7 +73,21 @@ int main()
 		}
 		else if (option == 3)
 		{
-			
+			ifstream infile;
+			cout << "Enter the file path of the file you wish to read:" << endl;
+			cin >> filePath;
+			infile.open(filePath);
+			int i = 0;
+			while (i < tempLimit && infile >> nameOfPart >> partCost >> amount) {
+				CD[i].getItemName(nameOfPart);
+				CD[i].getItemCost(partCost);
+				CD[i].getNumItem(amount);
+				i++;
+				totalNumParts++;
+			}
+			for (int i = 0; i < totalNumParts; i++) {
+				CD[i].printItems();
+			}
 			breakLoop = true;
 		}
 		else
@@ -89,15 +107,19 @@ int main()
 
 // ----------------------------------Functions------------------------------------
 
-string ComputerData::getItemName(string name)
+void ComputerData::getItemName(string name)
 {
-
+	partName = name;
 }
-float ComputerData::getItemCost(float itemCost)
+void ComputerData::getItemCost(float itemCost)
 {
-
+	cost = itemCost;
 }
-int ComputerData::getNumItem(int amount)
+void ComputerData::getNumItem(int amount)
 {
-
+	numberUsed = amount;
+}
+void ComputerData::printItems()
+{
+	cout << partName << " $" << cost << " " << numberUsed << endl;
 }
