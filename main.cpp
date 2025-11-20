@@ -60,29 +60,39 @@ int main()
 	bool breakLoop = false;
 	while (breakLoop == false)
 	{
-		cin >> option;
-		if (option == 1)
+		cin >> option; 
+		if (option == 1) // Order root choice
+		{
+			int partChoice;
+			cout << "Type number of which part(s)/action you would like to select:" << endl;
+			cout << "1. RAM(Random Access Memory)" << endl << "2. CPU (Central Processing Unit)"
+				<< endl << "3. GPU (Graphics Processing Unit)" << endl << "4. PSU (Power Supply Unit)" 
+				<< endl << "4. Motherboards" << endl << "5. Storage Devices" << endl << "6. Computer Fans"
+				<< endl << "7. Cords/Wires" << endl << "8. View cart" << endl << "9. To proceed to checkout" 
+				<< endl << "0. To cancel order and return to menu";
+			cin >> partChoice;
+
+		}
+		else if (option == 2) //Build root choice
 		{
 			
 			breakLoop = true;
 		}
-		else if (option == 2)
-		{
-			
-			breakLoop = true;
-		}
-		else if (option == 3)
+		else if (option == 3) //File read root choice
 		{
 			ifstream infile;
 			cout << "Enter the file path of the file you wish to read:" << endl;
 			cin >> filePath;
 			infile.open(filePath);
-			int i = 0;
-			while (i < tempLimit && infile >> nameOfPart >> partCost >> amount) {
-				CD[i].getItemName(nameOfPart);
-				CD[i].getItemCost(partCost);
-				CD[i].getNumItem(amount);
-				i++;
+			
+			if (!infile)
+			{
+				cout << "Error file not found" << endl;
+			}
+			while (totalNumParts < tempLimit && infile >> nameOfPart >> partCost >> amount) {
+				CD[totalNumParts].getItemName(nameOfPart);
+				CD[totalNumParts].getItemCost(partCost);
+				CD[totalNumParts].getNumItem(amount);
 				totalNumParts++;
 			}
 			for (int i = 0; i < totalNumParts; i++) {
