@@ -1,6 +1,5 @@
 // CSCI-40 Final Project
 // Author: Luis Amaro
-
 /* 
 Description:
 My project idea will be for a PC building helper app designed to assist them in 
@@ -20,18 +19,16 @@ if they wish to remove or add parts or can be used to cancel the order entirely.
 #include <string>
 #include <limits>
 using  namespace std;
-
-const int tempLimit = 30;
-
-class ComputerData
+const int ITEM_LIMIT = 30; //max limit
+class ComputerData //class
 {
 private:
-	float cost[tempLimit];
-	string partName[tempLimit];
-	int numberUsed[tempLimit];
+	float cost[ITEM_LIMIT];
+	string partName[ITEM_LIMIT];
+	int numberUsed[ITEM_LIMIT];
 	
 public:
-	ComputerData()
+	ComputerData() //
 	{
 		partName[0] = "";
 		cost[0] = 0;
@@ -48,10 +45,9 @@ public:
 	void printMotherboards();
 	void printStorage();
 	void printCordsAndWires();
-	void printCart(int index);
+	void printCart(int index) const;
 
 };
-
 int main() 
 {
 	ComputerData CD;
@@ -62,7 +58,6 @@ int main()
 	string filename;
 	string filePath;
 
-	
 	int option;
 	bool breakLoop = false;
 	while (breakLoop == false)
@@ -71,7 +66,7 @@ int main()
 		cout << "Will you be ordering parts, building a a full PC, or reading in an order/build file?" << endl
 			<< "Type the matching number to proceed." << endl << "1. Order" << endl << "2. Build"
 			<< endl << "3. Read file" << endl;cin >> option;
-		if (option == 1) // Order root choice ***********************************
+		if (option == 1) // Ordering root choice ****************************************************************
 		{
 			int partChoice;
 			cout << "Type number of which part(s)/action you would like to select:" << endl;
@@ -131,9 +126,16 @@ int main()
 				}
 				else if (partChoice == 8) //Cart
 				{
-					for (int i = 0; i < totalNumParts; i++) 
+					if (totalNumParts > 0)
 					{
-					CD.printCart(i);
+						for (int i = 0; i < totalNumParts; i++)
+						{
+							CD.printCart(i);
+						}
+					}
+					else
+					{
+						CD.printCart(0);
 					}
 					
 				}
@@ -219,35 +221,52 @@ int main()
 				else if (partChoice == 8) //Build
 				{
 					
-					for (int i = 0; i < totalNumParts; i++)
-					{
-						CD.printCart(i);
-					}
-				
-				}
-				else if (partChoice == 9) // Checkout
-				{
-					char yesOrNo;
-					cout << "Would you like to view your build before proceeding to checkout? y/n" << endl;
-					cin >> yesOrNo;
-					tolower(yesOrNo);
-					if (yesOrNo == 'y')
+					if (totalNumParts > 0)
 					{
 						for (int i = 0; i < totalNumParts; i++)
 						{
 							CD.printCart(i);
 						}
 					}
-					/* This if will be used to prevent user from proceeding to checkout
-					if ()
+					else
 					{
+						CD.printCart(0);
+					}
+				
+				}
+				else if (partChoice == 9) // Checkout
+				{
 					
+						/* This if will be used to prevent user from proceeding to checkout
+						if ()
+						{
+					char yesOrNo;
+					cout << "Would you like to view your build before proceeding to checkout? y/n" << endl;
+					cin >> yesOrNo;
+					cout << yesOrNo << endl;
+					if (yesOrNo == 'y' || yesOrNo == 'Y')
+					{
+						for (int i = 0; i < totalNumParts; i++)
+						{
+							CD.printCart(i);
+						}
+					}
+					else if (yesOrNo == 'n' || yesOrNo == 'N')
+					{
+						
+						else
+						{
+						cout << "Not enough parts selected" << endl;
+						}
 					}
 					else
 					{
-					cout << "Not enough parts selected" << endl;
+						cout << "Not y or n" << endl;
+						breakLoop = false;
+						break;
 					}
-					*/
+						*/
+					
 					breakLoop = true;
 					break; //To do add a method to checkout built pc. Temp break used
 				}
@@ -278,7 +297,7 @@ int main()
 			{
 				cout << "Error file not found" << endl;
 			}
-			while (totalNumParts < tempLimit && infile >> nameOfPart >> partCost >> amount) {
+			while (totalNumParts < ITEM_LIMIT && infile >> nameOfPart >> partCost >> amount) {
 				CD.getItemName(nameOfPart, totalNumParts);
 				CD.getItemCost(partCost, totalNumParts);
 				CD.getNumItem(amount, totalNumParts);
@@ -366,7 +385,12 @@ void ComputerData::printCordsAndWires()
 {
 
 }
-void ComputerData::printCart(int index)
+void ComputerData::printCart(int index) const
 {
+	if (partName[0] == "" || cost[0] == 0 || numberUsed[0] == 0)
+	{
+		cout << "No items in cart" << endl;
+		return;
+	}
 	cout << partName[index] << " $" << cost[index] << " " << numberUsed[index] << endl;
 }
