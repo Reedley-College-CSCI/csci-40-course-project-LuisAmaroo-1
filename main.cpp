@@ -103,7 +103,7 @@ int main()
 
 				if (partChoice == 1) // RAM sticks
 				{
-					
+					CD[tempLimit].printRam();
 				}
 				else if (partChoice == 2) // CPUs
 				{
@@ -190,7 +190,7 @@ int main()
 
 				if (partChoice == 1) // RAM sticks
 				{
-
+					CD[tempLimit].printRam();
 				}
 				else if (partChoice == 2) // CPUs
 				{
@@ -308,7 +308,20 @@ void ComputerData::printItems()
 }
 void ComputerData::printRam()
 {
-
+	cout << "DDR 4 Ram:\n";
+	cout << "Corsair Vengeance LPX 16GB(2×8GB) DDR4 - 4600 CL19 – $150.99" << endl
+		<< "G.SKILL Ripjaws V 32GB (2×16GB) DDR4-3600 CL18 – $169.99" << endl
+		<< "Crucial Ballistix 16GB (2×8GB) DDR4-3200 CL16 – $109.99" << endl
+		<< "TEAMGROUP T-Force Delta RGB 32GB (2×16GB) DDR4-3600 CL18 – $179.99" << endl
+		<< "Kingston Fury Beast 16GB (2×8GB) DDR4-3200 CL16 – $119.99" << endl
+		<< "Patriot Viper Steel 32GB (2×16GB) DDR4-4000 CL19 – $189.99" << endl << endl;
+	cout << "DDR 5 Ram:\n";
+	cout << "Corsair Vengeance RGB 32GB (2×16GB) DDR5-6000 CL36 – $407.99" << endl
+		<< "Crucial Pro Overclocking 32GB (2×16GB) DDR5-6000 CL36 – $273.99" << endl
+		<< "G.SKILL Trident Z5 Neo RGB 32GB (2×16GB) DDR5-6400 CL32 – $459.99" << endl
+		<< "G.SKILL Trident Z5 Neo RGB 128GB (2×64GB) DDR5-6000 CL34 – $929.99" << endl
+		<< "Thermaltake TOUGHRAM XG RGB 32GB (2×16GB) DDR5-6000 CL36 – $249.99" << endl
+		<< "Kingston Fury Renegade 32GB (2×16GB) DDR5-6400 CL32 – $479.99" << endl << endl;
 }
 
 void ComputerData::printCPU()
