@@ -41,6 +41,15 @@ public:
 	void getItemCost(float itemCost);
 	void getNumItem(int amount);
 	void printItems();
+	void printRam();
+	void printCPU();
+	void printGPU();
+	void printPSU();
+	void printMotherboards();
+	void printStorage();
+	void printCordsAndWires();
+	void printCart();
+
 };
 
 int main() 
