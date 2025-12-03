@@ -26,21 +26,21 @@ const int tempLimit = 30;
 class ComputerData
 {
 private:
-	float cost;
-	string partName;
-	int numberUsed;
+	float cost[tempLimit];
+	string partName[tempLimit];
+	int numberUsed[tempLimit];
 	
 public:
 	ComputerData()
 	{
-		partName = "";
-		cost = 0;
-		numberUsed = 0;
+		partName[0] = "";
+		cost[0] = 0;
+		numberUsed[0] = 0;
 	}
-	void getItemName(string name);
-	void getItemCost(float itemCost);
-	void getNumItem(int amount);
-	void printItems();
+	void getItemName(string name, int index);
+	void getItemCost(float itemCost, int index);
+	void getNumItem(int amount, int index);
+	void printItems(int index);
 	void printRam();
 	void printCPU();
 	void printGPU();
@@ -54,7 +54,7 @@ public:
 
 int main() 
 {
-	ComputerData CD[tempLimit];
+	ComputerData CD;
 	float partCost; // will be a placeholder for cost to have the inputted data be sent to the class member
 	string nameOfPart;  // will be a placeholder for partName to have the inputted data be sent to the class member
 	int amount;  // will be a placeholder for numberUsed to have the inputted data be sent to the class member
@@ -103,7 +103,7 @@ int main()
 
 				if (partChoice == 1) // RAM sticks
 				{
-					CD[tempLimit].printRam();
+					CD.printRam();
 				}
 				else if (partChoice == 2) // CPUs
 				{
@@ -190,7 +190,7 @@ int main()
 
 				if (partChoice == 1) // RAM sticks
 				{
-					CD[tempLimit].printRam();
+					CD.printRam();
 				}
 				else if (partChoice == 2) // CPUs
 				{
@@ -263,13 +263,13 @@ int main()
 				cout << "Error file not found" << endl;
 			}
 			while (totalNumParts < tempLimit && infile >> nameOfPart >> partCost >> amount) {
-				CD[totalNumParts].getItemName(nameOfPart);
-				CD[totalNumParts].getItemCost(partCost);
-				CD[totalNumParts].getNumItem(amount);
+				CD.getItemName(nameOfPart, totalNumParts);
+				CD.getItemCost(partCost, totalNumParts);
+				CD.getNumItem(amount, totalNumParts);
 				totalNumParts++;
 			}
 			for (int i = 0; i < totalNumParts; i++) {
-				CD[i].printItems();
+				CD.printItems(i);
 			}
 			breakLoop = true;
 		}
@@ -290,21 +290,23 @@ int main()
 
 // ----------------------------------Functions------------------------------------
 
-void ComputerData::getItemName(string name)
+void ComputerData::getItemName(string name, int index)
 {
-	partName = name;
+	partName[index] = name;
 }
-void ComputerData::getItemCost(float itemCost)
+void ComputerData::getItemCost(float itemCost, int index)
 {
-	cost = itemCost;
+	cost[index] = itemCost;
 }
-void ComputerData::getNumItem(int amount)
+void ComputerData::getNumItem(int amount, int index)
 {
-	numberUsed = amount;
+	numberUsed[index] = amount;
 }
-void ComputerData::printItems()
+void ComputerData::printItems(int index)
 {
-	cout << partName << " $" << cost << " " << numberUsed << endl;
+	
+		cout << partName[index] << " $" << cost[index] << " " << numberUsed[index] << endl;
+
 }
 void ComputerData::printRam()
 {
