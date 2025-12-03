@@ -306,3 +306,36 @@ void ComputerData::printItems()
 {
 	cout << partName << " $" << cost << " " << numberUsed << endl;
 }
+void ComputerData::printRam()
+{
+
+}
+
+void ComputerData::printCPU()
+{
+
+}
+void ComputerData::printGPU()
+{
+
+}
+void ComputerData::printPSU()
+{
+
+}
+void ComputerData::printMotherboards()
+{
+
+}
+void ComputerData::printStorage()
+{
+
+}
+void ComputerData::printCordsAndWires()
+{
+
+}
+void ComputerData::printCart()
+{
+
+}
