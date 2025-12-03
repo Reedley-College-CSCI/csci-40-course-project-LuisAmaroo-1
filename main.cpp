@@ -40,7 +40,7 @@ public:
 	void getItemName(string name, int index);
 	void getItemCost(float itemCost, int index);
 	void getNumItem(int amount, int index);
-	void printItems(int index);
+	void printFileItems(int index);
 	void printRam();
 	void printCPU();
 	void printGPU();
@@ -48,7 +48,7 @@ public:
 	void printMotherboards();
 	void printStorage();
 	void printCordsAndWires();
-	void printCart();
+	void printCart(int index);
 
 };
 
@@ -131,11 +131,11 @@ int main()
 				}
 				else if (partChoice == 8) //Cart
 				{
-					/* Will be used once parts are able to be added
-					for (int i = 0; i < totalNumParts; i++) {
-				CD[i].printItems();
-			}
-					*/
+					for (int i = 0; i < totalNumParts; i++) 
+					{
+					CD.printCart(i);
+					}
+					
 				}
 				else if (partChoice == 9) // Checkout
 				{
@@ -218,10 +218,26 @@ int main()
 				}
 				else if (partChoice == 8) //Build
 				{
-					// to do 
+					
+					for (int i = 0; i < totalNumParts; i++)
+					{
+						CD.printCart(i);
+					}
+				
 				}
 				else if (partChoice == 9) // Checkout
 				{
+					char yesOrNo;
+					cout << "Would you like to view your build before proceeding to checkout? y/n" << endl;
+					cin >> yesOrNo;
+					tolower(yesOrNo);
+					if (yesOrNo == 'y')
+					{
+						for (int i = 0; i < totalNumParts; i++)
+						{
+							CD.printCart(i);
+						}
+					}
 					/* This if will be used to prevent user from proceeding to checkout
 					if ()
 					{
@@ -269,7 +285,7 @@ int main()
 				totalNumParts++;
 			}
 			for (int i = 0; i < totalNumParts; i++) {
-				CD.printItems(i);
+				CD.printFileItems(i);
 			}
 			breakLoop = true;
 		}
@@ -302,7 +318,7 @@ void ComputerData::getNumItem(int amount, int index)
 {
 	numberUsed[index] = amount;
 }
-void ComputerData::printItems(int index)
+void ComputerData::printFileItems(int index)
 {
 	
 		cout << partName[index] << " $" << cost[index] << " " << numberUsed[index] << endl;
@@ -350,7 +366,7 @@ void ComputerData::printCordsAndWires()
 {
 
 }
-void ComputerData::printCart()
+void ComputerData::printCart(int index)
 {
-
+	cout << partName[index] << " $" << cost[index] << " " << numberUsed[index] << endl;
 }
