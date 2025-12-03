@@ -107,27 +107,27 @@ int main()
 				}
 				else if (partChoice == 2) // CPUs
 				{
-				
+					CD.printCPU();
 				}
 				else if (partChoice == 3) // GPUs
 				{
-				
+					CD.printGPU();
 				}
 				else if (partChoice == 4)// PSUs
 				{
-				
+					CD.printPSU();
 				}
 				else if (partChoice == 5) // Motherboards
 				{
-				
+					CD.printMotherboards();
 				}
 				else if (partChoice == 6) // Storage devices
 				{
-
+					CD.printStorage();
 				}
 				else if (partChoice == 7) // Cords/Wires
 				{
-
+					CD.printCordsAndWires();
 				}
 				else if (partChoice == 8) //Cart
 				{
@@ -194,27 +194,27 @@ int main()
 				}
 				else if (partChoice == 2) // CPUs
 				{
-
+					CD.printCPU();
 				}
 				else if (partChoice == 3) // GPUs
 				{
-
+					CD.printGPU();
 				}
 				else if (partChoice == 4)// PSUs
 				{
-
+					CD.printPSU();
 				}
 				else if (partChoice == 5) // Motherboards
 				{
-
+					CD.printMotherboards();
 				}
 				else if (partChoice == 6) // Storage devices
 				{
-
+					CD.printStorage();
 				}
 				else if (partChoice == 7) // Cords/Wires
 				{
-
+					CD.printCordsAndWires();
 				}
 				else if (partChoice == 8) //Build
 				{
