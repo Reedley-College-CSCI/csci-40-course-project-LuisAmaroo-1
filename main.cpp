@@ -39,6 +39,7 @@ public:
 		
 	}
 	void getItemName(string name, int index);
+	void getItemNameFile(string name, int index);
 	void getItemCost(float itemCost, int index);
 	void getNumItem(int amount, int index);
 	void printFileItems(int index);
@@ -451,9 +452,6 @@ int main()
 				cin >> partChoice;
 			}
 		}
-	
-			
-		
 		else if (option == 2) //Build root choice **************************
 		{
 			int partChoice;
@@ -835,8 +833,8 @@ int main()
 			{
 				cout << "Error file not found" << endl;
 			}
-			while (totalNumParts < ITEM_LIMIT && infile >> nameOfPart >> partCost >> amount) {
-				CD.getItemName(nameOfPart, totalNumParts);
+			while (totalNumParts < ITEM_LIMIT && getline(infile,nameOfPart, '*') && infile >> partCost >> amount) {
+				CD.getItemNameFile(nameOfPart, totalNumParts);
 				CD.getItemCost(partCost, totalNumParts);
 				CD.getNumItem(amount, totalNumParts);
 				totalNumParts++;
@@ -868,6 +866,10 @@ int main()
 // ----------------------------------Functions------------------------------------
 
 void ComputerData::getItemName(string name, int index)
+{
+	partName[index] = name;
+}
+void ComputerData::getItemNameFile(string name, int index)
 {
 	partName[index] = name;
 }
@@ -1012,7 +1014,7 @@ void ComputerData::purchaseToFile(int index)
 	}
 	for (int i = 0; i < index; i++)
 	{
-		saveFile << i + 1 << ". " << partName[i] << " x" << numberUsed[i] << endl;
+		saveFile << i + 1 << ". " << partName[i] << "*" << cost[i] << numberUsed[i] << endl;
 	}
 	saveFile << "*******************************************************************************************" << endl;
 	saveFile << "Item Name-Cost-Number ordered" << endl;
