@@ -26,19 +26,43 @@ private:
 	float cost[ITEM_LIMIT];
 	string partName[ITEM_LIMIT];
 	int numberUsed[ITEM_LIMIT];
+	
+	
+	
+public:
+	ComputerData() //
+	{
+		partName[0] = "";
+		cost[0] = 0;
+		numberUsed[0] = 0;
+		
+	}
+	void getItemName(string name, int index);
+	void getItemCost(float itemCost, int index);
+	void getNumItem(int amount, int index);
+	void printFileItems(int index);
+	void printRam();
+	void printCPU();
+	void printGPU();
+	void printPSU();
+	void printMotherboards();
+	void printStorage();
+	void printCordsAndWires();
+	void printCart(int index) const;
+	//arrays holding item names and prices for all catagories
 	string ramNames[12]
-	{"Corsair Vengeance LPX 16GB(2×8GB) DDR4 - 4600 CL19 – $150.99",
-	 "G.SKILL Ripjaws V 32GB (2×16GB) DDR4-3600 CL18 – $169.99",
-	 "Crucial Ballistix 16GB (2×8GB) DDR4-3200 CL16 – $109.99",
-	 "TEAMGROUP T-Force Delta RGB 32GB (2×16GB) DDR4-3600 CL18 – $179.99",
-	 "Kingston Fury Beast 16GB (2×8GB) DDR4-3200 CL16 – $119.99",
-	 "Patriot Viper Steel 32GB (2×16GB) DDR4-4000 CL19 – $189.99",
-	 "Corsair Vengeance RGB 32GB (2×16GB) DDR5-6000 CL36 – $407.99",
-	 "Crucial Pro Overclocking 32GB (2×16GB) DDR5-6000 CL36 – $273.99",
-	 "G.SKILL Trident Z5 Neo RGB 32GB (2×16GB) DDR5-6400 CL32 – $459.99",
-	 "G.SKILL Trident Z5 Neo RGB 128GB (2×64GB) DDR5-6000 CL34 – $929.99",
-	 "Thermaltake TOUGHRAM XG RGB 32GB (2×16GB) DDR5-6000 CL36 – $249.99",
-	 "Kingston Fury Renegade 32GB (2×16GB) DDR5-6400 CL32 – $479.99" };
+	{ "Corsair Vengeance LPX 16GB(2x8GB) DDR4 - 4600 CL19 - $150.99",
+	 "G.SKILL Ripjaws V 32GB (2x16GB) DDR4-3600 CL18 - $169.99",
+	 "Crucial Ballistix 16GB (2x8GB) DDR4-3200 CL16 - $109.99",
+	 "TEAMGROUP T-Force Delta RGB 32GB (2x16GB) DDR4-3600 CL18 - $179.99",
+	 "Kingston Fury Beast 16GB (2x8GB) DDR4-3200 CL16 - $119.99",
+	 "Patriot Viper Steel 32GB (2x16GB) DDR4-4000 CL19 - $189.99",
+	 "Corsair Vengeance RGB 32GB (2x16GB) DDR5-6000 CL36 - $407.99",
+	 "Crucial Pro Overclocking 32GB (2x16GB) DDR5-6000 CL36 - $273.99",
+	 "G.SKILL Trident Z5 Neo RGB 32GB (2x16GB) DDR5-6400 CL32 - $459.99",
+	 "G.SKILL Trident Z5 Neo RGB 128GB (2x64GB) DDR5-6000 CL34 - $929.99",
+	 "Thermaltake TOUGHRAM XG RGB 32GB (2x16GB) DDR5-6000 CL36 - $249.99",
+	 "Kingston Fury Renegade 32GB (2x16GB) DDR5-6400 CL32 - $479.99" };
 	string cpuNames[10]
 	{ "Intel Core i9-14900K – $499.99",
 	"Intel Core i7-14700K – $334.99",
@@ -94,35 +118,13 @@ private:
 	"Front Panel USB 3.0 Extension Cable — $12.79",
 	"HDMI Cable (6 ft, High-Speed 4K) — $8.49",
 	"DisplayPort Cable (6 ft, 4K/8K Ready) – $12.29" };
-	float ramPrice[12]{150.99, 169.99, 109.99, 179.99, 119.99, 189.99, 407.99, 273.99, 459.99, 929.99, 249.99, 479.99};
-	float cpuPrice[10]{499.99, 334.99, 204.99, 131.82, 137.99, 501.00, 374.00, 299.00, 204.00, 146.99};
-	float gpuPrice[8]{3499.00, 1779.00, 899.00, 322.00, 283.00, 809.00, 593.00, 580.00};
-	float psuPrice[7]{149.99, 129.99, 689.00, 69.99, 599.00, 216.50, 129.99};
+	float ramPrice[12]{ 150.99, 169.99, 109.99, 179.99, 119.99, 189.99, 407.99, 273.99, 459.99, 929.99, 249.99, 479.99 };
+	float cpuPrice[10]{ 499.99, 334.99, 204.99, 131.82, 137.99, 501.00, 374.00, 299.00, 204.00, 146.99 };
+	float gpuPrice[8]{ 3499.00, 1779.00, 899.00, 322.00, 283.00, 809.00, 593.00, 580.00 };
+	float psuPrice[7]{ 149.99, 129.99, 689.00, 69.99, 599.00, 216.50, 129.99 };
 	float motherboardPrice[8]{ 399.99, 361.20, 179.99, 379.99, 179.99, 209.99, 198.99, 188.42 };
-	float storagePrice[8]{64.99, 137.13, 42.95, 99.99, 109.99, 139.95, 132.11, 209.99};
-	float wireAndCordPrice[8]{8.99, 7.59, 12.99, 6.99, 9.89, 12.79, 8.49, 12.29};
-	
-	
-public:
-	ComputerData() //
-	{
-		partName[0] = "";
-		cost[0] = 0;
-		numberUsed[0] = 0;
-		
-	}
-	void getItemName(string name, int index);
-	void getItemCost(float itemCost, int index);
-	void getNumItem(int amount, int index);
-	void printFileItems(int index);
-	void printRam();
-	void printCPU();
-	void printGPU();
-	void printPSU();
-	void printMotherboards();
-	void printStorage();
-	void printCordsAndWires();
-	void printCart(int index) const;
+	float storagePrice[8]{ 64.99, 137.13, 42.95, 99.99, 109.99, 139.95, 132.11, 209.99 };
+	float wireAndCordPrice[8]{ 8.99, 7.59, 12.99, 6.99, 9.89, 12.79, 8.49, 12.29 };
 
 };
 int main() 
@@ -152,7 +154,7 @@ int main()
 				<< endl << "4. Motherboards" << endl << "5. Storage Devices" << endl << "6. Computer Fans"
 				<< endl << "7. Cords/Wires" << endl << "8. View cart" << endl << "9. To proceed to checkout" 
 				<< endl << "0. To cancel order and return to menu" << endl;
-			cout << "You can choose a max amount of 50 parts" << endl;
+			cout << "You can choose a max amount of 30 parts" << endl;
 			cin >> partChoice;
 			while (true)
 			{
@@ -176,14 +178,79 @@ int main()
 				if (partChoice == 1) // RAM sticks
 				{
 					CD.printRam();
+					cout << "Enter item number: " << endl;
+					int indexChoice;
+					cin >> indexChoice;
+					if (indexChoice == 0) break;
+					indexChoice -= 1;
+					string itemName = CD.ramNames[indexChoice];
+					float costOfItem = CD.ramPrice[indexChoice];
+					if (itemName == CD.ramNames[indexChoice] && costOfItem == CD.ramPrice[indexChoice] && totalNumParts < ITEM_LIMIT) {
+						int itemAmount;
+						cout << "How many of this item would you like to order?" << endl;
+						cin >> itemAmount;
+						CD.getItemName(itemName, totalNumParts);
+						CD.getItemCost(costOfItem, totalNumParts);
+						CD.getNumItem(itemAmount, totalNumParts);
+						itemAmount--;
+						totalNumParts++;
+						cout << totalNumParts << endl;
+					}
+					else
+					{
+						cout << "Invalid choice" << endl;
+					}
+
 				}
 				else if (partChoice == 2) // CPUs
 				{
 					CD.printCPU();
+					cout << "Enter item number: " << endl;
+					int indexChoice;
+					cin >> indexChoice;
+					if (indexChoice == 0) break;
+					indexChoice -= 1;
+					string itemName = CD.cpuNames[indexChoice];
+					float costOfItem = CD.cpuPrice[indexChoice];
+					if (itemName == CD.cpuNames[indexChoice] && costOfItem == CD.cpuPrice[indexChoice] && totalNumParts < ITEM_LIMIT) {
+						int itemAmount;
+						cout << "How many of this item would you like to order?" << endl;
+						cin >> itemAmount;
+						CD.getItemName(itemName, totalNumParts);
+						CD.getItemCost(costOfItem, totalNumParts);
+						CD.getNumItem(itemAmount, totalNumParts);
+						totalNumParts++;
+						cout << totalNumParts << endl;
+					}
+					else
+					{
+						cout << "Invalid choice" << endl;
+					}
 				}
 				else if (partChoice == 3) // GPUs
 				{
 					CD.printGPU();
+					cout << "Enter item number: " << endl;
+					int indexChoice;
+					cin >> indexChoice;
+					if (indexChoice == 0) break;
+					indexChoice -= 1;
+					string itemName = CD.gpuNames[indexChoice];
+					float costOfItem = CD.gpuPrice[indexChoice];
+					if (itemName == CD.gpuNames[indexChoice] && costOfItem == CD.gpuPrice[indexChoice] && totalNumParts < ITEM_LIMIT) {
+						int itemAmount;
+						cout << "How many of this item would you like to order?" << endl;
+						cin >> itemAmount;
+						CD.getItemName(itemName, totalNumParts);
+						CD.getItemCost(costOfItem, totalNumParts);
+						CD.getNumItem(itemAmount, totalNumParts);
+						totalNumParts++;
+						cout << totalNumParts << endl;
+					}
+					else
+					{
+						cout << "Invalid choice" << endl;
+					}
 				}
 				else if (partChoice == 4)// PSUs
 				{
@@ -423,7 +490,8 @@ void ComputerData::printFileItems(int index)
 }
 void ComputerData::printRam()
 {
-	cout << "DDR 4 Ram:\n";
+	cout << "0. To cancel" << endl
+		<< "DDR 4 Ram:\n";
 	cout << "1. Corsair Vengeance LPX 16GB(2×8GB) DDR4 - 4600 CL19 – $150.99" << endl
 		<< "2. G.SKILL Ripjaws V 32GB (2×16GB) DDR4-3600 CL18 – $169.99" << endl
 		<< "3. Crucial Ballistix 16GB (2×8GB) DDR4-3200 CL16 – $109.99" << endl
@@ -440,7 +508,8 @@ void ComputerData::printRam()
 }
 void ComputerData::printCPU()
 {
-	cout << "Intel CPUs:" << endl
+	cout << "0. To cancel" << endl
+		<< "Intel CPUs:" << endl
 		<< "1. Intel Core i9-14900K – $499.99" << endl
 		<< "2. Intel Core i7-14700K – $334.99" << endl
 		<< "3. Intel Core i5-14600K – $204.99" << endl
@@ -455,7 +524,8 @@ void ComputerData::printCPU()
 }
 void ComputerData::printGPU()
 {
-	cout << "NVIDIA GPUs:"
+	cout << "0. To cancel" << endl 
+		<< "NVIDIA GPUs:" << endl
 		<< "1. GeForce RTX 4090 – $3,499.00" << endl
 		<< "2. GeForce RTX 4080 – $1, 779.00" << endl
 		<< "3. GeForce RTX 4070 Ti – $899.00" << endl << endl
@@ -469,7 +539,8 @@ void ComputerData::printGPU()
 }
 void ComputerData::printPSU()
 {
-	cout << "PSUs:" << endl
+	cout << "0. To cancel" << endl
+		<< "PSUs:" << endl
 		<< "1. Corsair RM850x (850W, 80+ Gold, Fully Modular) – $149.99" << endl
 		<< "2. EVGA SuperNOVA 750 G6 (750W, 80+ Gold, Fully Modular) – $129.99" << endl
 		<< "3. Seasonic PRIME TX-1000 (1000W, 80+ Titanium, Fully Modular) – $689.00" << endl
@@ -480,7 +551,8 @@ void ComputerData::printPSU()
 }
 void ComputerData::printMotherboards()
 {
-	cout << "Intel Motherboard Platforms:" << endl
+	cout << "0. To cancel" << endl
+		<< "Intel Motherboard Platforms:" << endl
 		<< "1. ASUS ROG Strix Z790-E Gaming WiFi – $399.99" << endl
 		<< "2. MSI MPG Z790 Carbon WiFi – $361.20" << endl
 		<< "3. Gigabyte Z790 AORUS Elite AX – $179.99" << endl
@@ -493,7 +565,8 @@ void ComputerData::printMotherboards()
 }
 void ComputerData::printStorage()
 {
-	cout << "Hard Disk Drives:" << endl
+	cout << "0. To cancel" << endl
+		<<"Hard Disk Drives:" << endl
 		<< "1. Seagate Barracuda 2TB HDD (7200 RPM) – $64.99" << endl
 		<< "2. Toshiba X300 4TB HDD (7200 RPM) – $137.13" << endl
 		<< "3. Western Digital Blue 1TB HDD (7200 RPM) – $42.95" << endl << endl
@@ -508,7 +581,8 @@ void ComputerData::printStorage()
 void ComputerData::printCordsAndWires()
 {
 
-	cout << "Power Cables:" << endl
+	cout << "0. To cancel" << endl 
+		<< "Power Cables:" << endl
 		<< "1. ATX 24-Pin Motherboard Power Cable — $8.99" << endl
 		<< "2. CPU 8-Pin EPS Power Cable (4+4 Pin) — $7.59" << endl
 		<< "3. PCIe GPU Power Cable (8-Pin to 6+2 Pin) — $12.99" << endl << endl
@@ -523,10 +597,5 @@ void ComputerData::printCordsAndWires()
 }
 void ComputerData::printCart(int index) const
 {
-	if (partName[0] == "" || cost[0] == 0 || numberUsed[0] == 0)
-	{
-		cout << "No items in cart" << endl;
-		return;
-	}
-	cout << partName[index] << " $" << cost[index] << " " << numberUsed[index] << endl;
+	cout << partName[index] << " " << numberUsed[index] << endl;
 }
