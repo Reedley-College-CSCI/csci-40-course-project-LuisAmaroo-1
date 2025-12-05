@@ -444,7 +444,7 @@ int main()
 				cout << "Type number of which part(s)/action you would like to select:" << endl;
 				cout << "1. RAM(Random Access Memory)" << endl << "2. CPU (Central Processing Unit)"
 					<< endl << "3. GPU (Graphics Processing Unit)" << endl << "4. PSU (Power Supply Unit)"
-					<< endl << "4. Motherboards" << endl << "5. Storage Devices" << endl << "6. Computer Fans"
+					<< endl << "5. Motherboards" << endl << "6. Storage Devices"
 					<< endl << "7. Cords/Wires" << endl << "8. View cart" << endl << "9. To proceed to checkout"
 					<< endl << "0. To cancel order and return to menu" << endl;
 				cout << totalNumParts << " parts selected" << endl;
@@ -896,12 +896,12 @@ void ComputerData::printRam()
 		<< "5. Kingston Fury Beast 16GB (2x8GB) DDR4-3200 CL16 - $119.99" << endl
 		<< "6. Patriot Viper Steel 32GB (2x16GB) DDR4-4000 CL19 - $189.99" << endl << endl;
 	cout << "\nDDR 5 Ram:\n";
-	cout << "7. Corsair Vengeance RGB 32GB (2×16GB) DDR5-6000 CL36 – $407.99" << endl
-		<< "8. Crucial Pro Overclocking 32GB (2×16GB) DDR5-6000 CL36 – $273.99" << endl
-		<< "9. G.SKILL Trident Z5 Neo RGB 32GB (2×16GB) DDR5-6400 CL32 – $459.99" << endl
-		<< "10. G.SKILL Trident Z5 Neo RGB 128GB (2×64GB) DDR5-6000 CL34 – $929.99" << endl
-		<< "11. Thermaltake TOUGHRAM XG RGB 32GB (2×16GB) DDR5-6000 CL36 – $249.99" << endl
-		<< "12. Kingston Fury Renegade 32GB (2×16GB) DDR5-6400 CL32 – $479.99" << endl << endl;
+	cout << "7. Corsair Vengeance RGB 32GB (2x16GB) DDR5-6000 CL36 – $407.99" << endl
+		<< "8. Crucial Pro Overclocking 32GB (2x16GB) DDR5-6000 CL36 – $273.99" << endl
+		<< "9. G.SKILL Trident Z5 Neo RGB 32GB (2x16GB) DDR5-6400 CL32 – $459.99" << endl
+		<< "10. G.SKILL Trident Z5 Neo RGB 128GB (2x64GB) DDR5-6000 CL34 – $929.99" << endl
+		<< "11. Thermaltake TOUGHRAM XG RGB 32GB (2x16GB) DDR5-6000 CL36 – $249.99" << endl
+		<< "12. Kingston Fury Renegade 32GB (2x16GB) DDR5-6400 CL32 – $479.99" << endl << endl;
 }
 void ComputerData::printCPU()
 {
