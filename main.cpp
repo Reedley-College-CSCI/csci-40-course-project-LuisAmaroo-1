@@ -352,7 +352,7 @@ void ComputerData::printRam()
 		<< "4. TEAMGROUP T-Force Delta RGB 32GB (2×16GB) DDR4-3600 CL18 – $179.99" << endl
 		<< "5. Kingston Fury Beast 16GB (2×8GB) DDR4-3200 CL16 – $119.99" << endl
 		<< "6. Patriot Viper Steel 32GB (2×16GB) DDR4-4000 CL19 – $189.99" << endl << endl;
-	cout << "DDR 5 Ram:\n";
+	cout << "\nDDR 5 Ram:\n";
 	cout << "7. Corsair Vengeance RGB 32GB (2×16GB) DDR5-6000 CL36 – $407.99" << endl
 		<< "8. Crucial Pro Overclocking 32GB (2×16GB) DDR5-6000 CL36 – $273.99" << endl
 		<< "9. G.SKILL Trident Z5 Neo RGB 32GB (2×16GB) DDR5-6400 CL32 – $459.99" << endl
@@ -360,7 +360,6 @@ void ComputerData::printRam()
 		<< "11. Thermaltake TOUGHRAM XG RGB 32GB (2×16GB) DDR5-6000 CL36 – $249.99" << endl
 		<< "12. Kingston Fury Renegade 32GB (2×16GB) DDR5-6400 CL32 – $479.99" << endl << endl;
 }
-
 void ComputerData::printCPU()
 {
 	cout << "Intel CPUs:" << endl
@@ -368,7 +367,7 @@ void ComputerData::printCPU()
 		<< "2. Intel Core i7-14700K – $334.99" << endl
 		<< "3. Intel Core i5-14600K – $204.99" << endl
 		<< "4. Intel Core i3-14100 – $131.82" << endl
-		<< "5. Intel Core i5-12400F – $137.99" << endl
+		<< "5. Intel Core i5-12400F – $137.99" << endl << endl
 		<< "AMD CPUs" << endl
 		<< "6. AMD Ryzen 9 7950X – $501.00" << endl
 		<< "7. AMD Ryzen 9 7900X – $374.00" << endl
@@ -381,10 +380,10 @@ void ComputerData::printGPU()
 	cout << "NVIDIA GPUs:"
 		<< "1. GeForce RTX 4090 – $3,499.00" << endl
 		<< "2. GeForce RTX 4080 – $1, 779.00" << endl
-		<< "3. GeForce RTX 4070 Ti – $899.00" << endl
+		<< "3. GeForce RTX 4070 Ti – $899.00" << endl << endl
 		<< "4. Intel GPUs:" << endl
 		<< "5. Intel Arc A770 – $322.00" << endl
-		<< "6. Intel Arc A750 – $283.00" << endl
+		<< "6. Intel Arc A750 – $283.00" << endl << endl
 		<< "AMD GPUs:" << endl
 		<< "7. Radeon RX 7900 XTX – $809.00" << endl
 		<< "8. Radeon RX 7800 XT – $593.00" << endl
@@ -407,7 +406,7 @@ void ComputerData::printMotherboards()
 		<< "1. ASUS ROG Strix Z790-E Gaming WiFi – $399.99" << endl
 		<< "2. MSI MPG Z790 Carbon WiFi – $361.20" << endl
 		<< "3. Gigabyte Z790 AORUS Elite AX – $179.99" << endl
-		<< "4. ASRock Z790 Taichi – $379.99" << endl
+		<< "4. ASRock Z790 Taichi – $379.99" << endl << endl
 		<< "AMD Motherboard Platforms:" << endl
 		<< "5. MSI MAG B650 Tomahawk WiFi – $179.99" << endl
 		<< "6. ASUS TUF Gaming X670E-Plus WiFi – $209.99" << endl
@@ -419,7 +418,7 @@ void ComputerData::printStorage()
 	cout << "Hard Disk Drives:" << endl
 		<< "1. Seagate Barracuda 2TB HDD (7200 RPM) – $64.99" << endl
 		<< "2. Toshiba X300 4TB HDD (7200 RPM) – $137.13" << endl
-		<< "3. Western Digital Blue 1TB HDD (7200 RPM) – $42.95" << endl
+		<< "3. Western Digital Blue 1TB HDD (7200 RPM) – $42.95" << endl << endl
 		<< "Solid State Drives:" << endl
 		<< "4. Samsung 980 Pro 1TB NVMe SSD – $99.99" << endl
 		<< "5. WD Black SN850X 1TB NVMe SSD – $109.99" << endl
@@ -430,14 +429,19 @@ void ComputerData::printStorage()
 }
 void ComputerData::printCordsAndWires()
 {
-	cout << "" << endl
-		<< "" << endl
-		<< "" << endl
-		<< "" << endl
-		<< "" << endl
-		<< "" << endl
-		<< "" << endl
-		<< "" << endl << endl;
+
+	cout << "Power Cables:" << endl
+		<< "1. ATX 24-Pin Motherboard Power Cable — $8.99" << endl
+		<< "2. CPU 8-Pin EPS Power Cable (4+4 Pin) — $7.59" << endl
+		<< "3. PCIe GPU Power Cable (8-Pin to 6+2 Pin) — $12.99" << endl << endl
+		<< "Data Cables:" << endl
+		<< "4. SATA III Data Cable (18-inch, pack of 3) — $6.99" << endl
+		<< "5. USB 3.0 Internal Header Cable (19/20 Pin) — $9.89" << endl
+		<< "6. Front Panel USB 3.0 Extension Cable — $12.79" << endl << endl
+		<< "Display Cables:" << endl
+		<< "7. HDMI Cable (6 ft, High-Speed 4K) — $8.49" << endl
+		<< "8.DisplayPort Cable (6 ft, 4K/8K Ready) – $12.29" << endl << endl;
+
 }
 void ComputerData::printCart(int index) const
 {
