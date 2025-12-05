@@ -1012,7 +1012,7 @@ void ComputerData::purchaseToFile(int index)
 	}
 	for (int i = 0; i < index; i++)
 	{
-		saveFile << index + 1 << ". " << partName[i] << " x" << numberUsed[i] << endl;
+		saveFile << i + 1 << ". " << partName[i] << " x" << numberUsed[i] << endl;
 	}
 	saveFile << "*******************************************************************************************" << endl;
 	saveFile << "Item Name-Cost-Number ordered" << endl;
