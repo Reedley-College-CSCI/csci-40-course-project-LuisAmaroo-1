@@ -26,6 +26,82 @@ private:
 	float cost[ITEM_LIMIT];
 	string partName[ITEM_LIMIT];
 	int numberUsed[ITEM_LIMIT];
+	string ramNames[12]
+	{"Corsair Vengeance LPX 16GB(2×8GB) DDR4 - 4600 CL19 – $150.99",
+	 "G.SKILL Ripjaws V 32GB (2×16GB) DDR4-3600 CL18 – $169.99",
+	 "Crucial Ballistix 16GB (2×8GB) DDR4-3200 CL16 – $109.99",
+	 "TEAMGROUP T-Force Delta RGB 32GB (2×16GB) DDR4-3600 CL18 – $179.99",
+	 "Kingston Fury Beast 16GB (2×8GB) DDR4-3200 CL16 – $119.99",
+	 "Patriot Viper Steel 32GB (2×16GB) DDR4-4000 CL19 – $189.99",
+	 "Corsair Vengeance RGB 32GB (2×16GB) DDR5-6000 CL36 – $407.99",
+	 "Crucial Pro Overclocking 32GB (2×16GB) DDR5-6000 CL36 – $273.99",
+	 "G.SKILL Trident Z5 Neo RGB 32GB (2×16GB) DDR5-6400 CL32 – $459.99",
+	 "G.SKILL Trident Z5 Neo RGB 128GB (2×64GB) DDR5-6000 CL34 – $929.99",
+	 "Thermaltake TOUGHRAM XG RGB 32GB (2×16GB) DDR5-6000 CL36 – $249.99",
+	 "Kingston Fury Renegade 32GB (2×16GB) DDR5-6400 CL32 – $479.99" };
+	string cpuNames[10]
+	{ "Intel Core i9-14900K – $499.99",
+	"Intel Core i7-14700K – $334.99",
+	"Intel Core i5-14600K – $204.99",
+	"Intel Core i3-14100 – $131.82",
+	"Intel Core i5-12400F – $137.99",
+	"AMD Ryzen 9 7950X – $501.00",
+	"AMD Ryzen 9 7900X – $374.00",
+	"AMD Ryzen 7 7700X – $299.00",
+	"AMD Ryzen 5 7600X – $204.00",
+	"AMD Ryzen 5 5600 – $146.99" };
+	string gpuNames[8]
+	{ "GeForce RTX 4090 – $3,499.00",
+	"GeForce RTX 4080 – $1,779.00",
+	"GeForce RTX 4070 Ti – $899.00",
+	"Intel Arc A770 – $322.00",
+	"Intel Arc A750 – $283.00",
+	"Radeon RX 7900 XTX – $809.00",
+	"Radeon RX 7800 XT – $593.00",
+	"Radeon RX 7900 XT – $580.00" };
+	string psuNames[7]
+	{ "Corsair RM850x (850W, 80+ Gold, Fully Modular) – $149.99",
+	"EVGA SuperNOVA 750 G6 (750W, 80+ Gold, Fully Modular) – $129.99",
+	"Seasonic PRIME TX-1000 (1000W, 80+ Titanium, Fully Modular) – $689.00",
+	"Cooler Master MWE Gold 750 V2 (750W, 80+ Gold, Fully Modular) – $69.99",
+	"ASUS ROG Thor 1200W Platinum II (1200W, 80+ Platinum, Fully Modular) – $599.00",
+	"Thermaltake Toughpower GF1 (850W, 80+ Gold, Fully Modular) – $216.50",
+	"MSI MPG A850G (850W, 80+ Gold, Fully Modular) – $129.99" };
+	string motherboardNames[8]
+	{ "ASUS ROG Strix Z790-E Gaming WiFi – $399.99",
+	"MSI MPG Z790 Carbon WiFi – $361.20",
+	"Gigabyte Z790 AORUS Elite AX – $179.99",
+	"ASRock Z790 Taichi – $379.99",
+	"MSI MAG B650 Tomahawk WiFi – $179.99",
+	"ASUS TUF Gaming X670E-Plus WiFi – $209.99",
+	"ASRock B650E Steel Legend WiFi – $198.99",
+	"Gigabyte B550 AORUS Elite – $188.42" };
+	string storageNames[8]
+	{ "Seagate Barracuda 2TB HDD (7200 RPM) – $64.99",
+	"Toshiba X300 4TB HDD (7200 RPM) – $137.13",
+	"Western Digital Blue 1TB HDD (7200 RPM) – $42.95",
+	"Samsung 980 Pro 1TB NVMe SSD – $99.99",
+	"WD Black SN850X 1TB NVMe SSD – $109.99",
+	"Crucial P5 Plus 1TB NVMe SSD – $139.95",
+	"Kingston KC3000 1TB NVMe SSD – $132.11",
+	"Sabrent Rocket 4 Plus 2TB NVMe SSD – $209.99" };
+	string wireAndCordNames[8]
+	{ "ATX 24-Pin Motherboard Power Cable — $8.99",
+	"CPU 8-Pin EPS Power Cable (4+4 Pin) — $7.59",
+	"PCIe GPU Power Cable (8-Pin to 6+2 Pin) — $12.99",
+	"SATA III Data Cable (18-inch, pack of 3) — $6.99",
+	"USB 3.0 Internal Header Cable (19/20 Pin) — $9.89",
+	"Front Panel USB 3.0 Extension Cable — $12.79",
+	"HDMI Cable (6 ft, High-Speed 4K) — $8.49",
+	"DisplayPort Cable (6 ft, 4K/8K Ready) – $12.29" };
+	float ramPrice[12]{150.99, 169.99, 109.99, 179.99, 119.99, 189.99, 407.99, 273.99, 459.99, 929.99, 249.99, 479.99};
+	float cpuPrice[10]{499.99, 334.99, 204.99, 131.82, 137.99, 501.00, 374.00, 299.00, 204.00, 146.99};
+	float gpuPrice[8]{3499.00, 1779.00, 899.00, 322.00, 283.00, 809.00, 593.00, 580.00};
+	float psuPrice[7]{149.99, 129.99, 689.00, 69.99, 599.00, 216.50, 129.99};
+	float motherboardPrice[8]{ 399.99, 361.20, 179.99, 379.99, 179.99, 209.99, 198.99, 188.42 };
+	float storagePrice[8]{64.99, 137.13, 42.95, 99.99, 109.99, 139.95, 132.11, 209.99};
+	float wireAndCordPrice[8]{8.99, 7.59, 12.99, 6.99, 9.89, 12.79, 8.49, 12.29};
+	
 	
 public:
 	ComputerData() //
@@ -33,6 +109,7 @@ public:
 		partName[0] = "";
 		cost[0] = 0;
 		numberUsed[0] = 0;
+		
 	}
 	void getItemName(string name, int index);
 	void getItemCost(float itemCost, int index);
@@ -169,7 +246,8 @@ int main()
 				<< endl << "7. Cords/Wires" << endl << "8. View current build" << endl << "9. To proceed to checkout"
 				<< endl << "0. To cancel build and return to menu" << endl;
 			cout << "You can choose a max amount of 30 parts" << endl;
-			cout << "You will need to have selected a required amount of parts to be able to proceed to checkout" << endl;
+			cout << "You will need to have selected a required amount of parts to be able to proceed to checkout." << endl
+				<<" A free case will be provided with your purchase" << endl;
 			cin >> partChoice;
 			while (true)
 			{
@@ -218,7 +296,7 @@ int main()
 				{
 					CD.printCordsAndWires();
 				}
-				else if (partChoice == 8) //Build
+				else if (partChoice == 8) //View Build
 				{
 					
 					if (totalNumParts > 0)
@@ -373,7 +451,7 @@ void ComputerData::printCPU()
 		<< "7. AMD Ryzen 9 7900X – $374.00" << endl
 		<< "8. AMD Ryzen 7 7700X – $299.00" << endl
 		<< "9. AMD Ryzen 5 7600X – $204.00" << endl
-		<< "10. AMD Ryzen 5 5600 – $146.99" << endl << endl
+		<< "10. AMD Ryzen 5 5600 – $146.99" << endl << endl;
 }
 void ComputerData::printGPU()
 {
@@ -381,13 +459,13 @@ void ComputerData::printGPU()
 		<< "1. GeForce RTX 4090 – $3,499.00" << endl
 		<< "2. GeForce RTX 4080 – $1, 779.00" << endl
 		<< "3. GeForce RTX 4070 Ti – $899.00" << endl << endl
-		<< "4. Intel GPUs:" << endl
-		<< "5. Intel Arc A770 – $322.00" << endl
-		<< "6. Intel Arc A750 – $283.00" << endl << endl
+		<< "Intel GPUs:" << endl
+		<< "4. Intel Arc A770 – $322.00" << endl
+		<< "5. Intel Arc A750 – $283.00" << endl << endl
 		<< "AMD GPUs:" << endl
-		<< "7. Radeon RX 7900 XTX – $809.00" << endl
-		<< "8. Radeon RX 7800 XT – $593.00" << endl
-		<< "9. Radeon RX 7900 XT – $580.00" << endl << endl;
+		<< "6. Radeon RX 7900 XTX – $809.00" << endl
+		<< "7. Radeon RX 7800 XT – $593.00" << endl
+		<< "8. Radeon RX 7900 XT – $580.00" << endl << endl;
 }
 void ComputerData::printPSU()
 {
