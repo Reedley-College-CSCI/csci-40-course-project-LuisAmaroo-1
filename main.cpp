@@ -237,7 +237,7 @@ int main()
 				else if (partChoice == 9) // Checkout
 				{
 					
-						/* This if will be used to prevent user from proceeding to checkout
+						/* This if will be used to prevent user from proceeding to checkout in they dont select all required parts
 						if ()
 						{
 					char yesOrNo;
@@ -346,28 +346,49 @@ void ComputerData::printFileItems(int index)
 void ComputerData::printRam()
 {
 	cout << "DDR 4 Ram:\n";
-	cout << "Corsair Vengeance LPX 16GB(2×8GB) DDR4 - 4600 CL19 – $150.99" << endl
-		<< "G.SKILL Ripjaws V 32GB (2×16GB) DDR4-3600 CL18 – $169.99" << endl
-		<< "Crucial Ballistix 16GB (2×8GB) DDR4-3200 CL16 – $109.99" << endl
-		<< "TEAMGROUP T-Force Delta RGB 32GB (2×16GB) DDR4-3600 CL18 – $179.99" << endl
-		<< "Kingston Fury Beast 16GB (2×8GB) DDR4-3200 CL16 – $119.99" << endl
-		<< "Patriot Viper Steel 32GB (2×16GB) DDR4-4000 CL19 – $189.99" << endl << endl;
+	cout << "1. Corsair Vengeance LPX 16GB(2×8GB) DDR4 - 4600 CL19 – $150.99" << endl
+		<< "2. G.SKILL Ripjaws V 32GB (2×16GB) DDR4-3600 CL18 – $169.99" << endl
+		<< "3. Crucial Ballistix 16GB (2×8GB) DDR4-3200 CL16 – $109.99" << endl
+		<< "4. TEAMGROUP T-Force Delta RGB 32GB (2×16GB) DDR4-3600 CL18 – $179.99" << endl
+		<< "5. Kingston Fury Beast 16GB (2×8GB) DDR4-3200 CL16 – $119.99" << endl
+		<< "6. Patriot Viper Steel 32GB (2×16GB) DDR4-4000 CL19 – $189.99" << endl << endl;
 	cout << "DDR 5 Ram:\n";
-	cout << "Corsair Vengeance RGB 32GB (2×16GB) DDR5-6000 CL36 – $407.99" << endl
-		<< "Crucial Pro Overclocking 32GB (2×16GB) DDR5-6000 CL36 – $273.99" << endl
-		<< "G.SKILL Trident Z5 Neo RGB 32GB (2×16GB) DDR5-6400 CL32 – $459.99" << endl
-		<< "G.SKILL Trident Z5 Neo RGB 128GB (2×64GB) DDR5-6000 CL34 – $929.99" << endl
-		<< "Thermaltake TOUGHRAM XG RGB 32GB (2×16GB) DDR5-6000 CL36 – $249.99" << endl
-		<< "Kingston Fury Renegade 32GB (2×16GB) DDR5-6400 CL32 – $479.99" << endl << endl;
+	cout << "7. Corsair Vengeance RGB 32GB (2×16GB) DDR5-6000 CL36 – $407.99" << endl
+		<< "8. Crucial Pro Overclocking 32GB (2×16GB) DDR5-6000 CL36 – $273.99" << endl
+		<< "9. G.SKILL Trident Z5 Neo RGB 32GB (2×16GB) DDR5-6400 CL32 – $459.99" << endl
+		<< "10. G.SKILL Trident Z5 Neo RGB 128GB (2×64GB) DDR5-6000 CL34 – $929.99" << endl
+		<< "11. Thermaltake TOUGHRAM XG RGB 32GB (2×16GB) DDR5-6000 CL36 – $249.99" << endl
+		<< "12. Kingston Fury Renegade 32GB (2×16GB) DDR5-6400 CL32 – $479.99" << endl << endl;
 }
 
 void ComputerData::printCPU()
 {
-
+	cout << "Intel CPUs:" << endl
+		<< "1. Intel Core i9-14900K – $499.99" << endl
+		<< "2. Intel Core i7-14700K – $334.99" << endl
+		<< "3. Intel Core i5-14600K – $204.99" << endl
+		<< "4. Intel Core i3-14100 – $131.82" << endl
+		<< "5. Intel Core i5-12400F – $137.99" << endl
+		<< "AMD CPUs" << endl
+		<< "6. AMD Ryzen 9 7950X – $501.00" << endl
+		<< "7. AMD Ryzen 9 7900X – $374.00" << endl
+		<< "8. AMD Ryzen 7 7700X – $299.00" << endl
+		<< "9. AMD Ryzen 5 7600X – $204.00" << endl
+		<< "10. AMD Ryzen 5 5600 – $146.99" << endl << endl
 }
 void ComputerData::printGPU()
 {
-
+	cout << "NVIDIA GPUs:"
+		<< "1. GeForce RTX 4090 – $3,499.00" << endl
+		<< "2. GeForce RTX 4080 – $1, 779.00" << endl 
+		<< "3. GeForce RTX 4070 Ti – $899.00" << endl
+		<< "4. Intel GPUs:" << endl
+		<< "5. Intel Arc A770 – $322.00" << endl
+		<< "6. Intel Arc A750 – $283.00" << endl
+		<< "7. AMD GPUs:" << endl
+		<< "8. Radeon RX 7900 XTX – $809.00" << endl
+		<< "9. Radeon RX 7800 XT – $593.00" << endl
+		<< "10. Radeon RX 7900 XT – $580.00" << endl
 }
 void ComputerData::printPSU()
 {
