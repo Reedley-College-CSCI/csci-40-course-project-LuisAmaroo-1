@@ -380,31 +380,64 @@ void ComputerData::printGPU()
 {
 	cout << "NVIDIA GPUs:"
 		<< "1. GeForce RTX 4090 – $3,499.00" << endl
-		<< "2. GeForce RTX 4080 – $1, 779.00" << endl 
+		<< "2. GeForce RTX 4080 – $1, 779.00" << endl
 		<< "3. GeForce RTX 4070 Ti – $899.00" << endl
 		<< "4. Intel GPUs:" << endl
 		<< "5. Intel Arc A770 – $322.00" << endl
 		<< "6. Intel Arc A750 – $283.00" << endl
-		<< "7. AMD GPUs:" << endl
-		<< "8. Radeon RX 7900 XTX – $809.00" << endl
-		<< "9. Radeon RX 7800 XT – $593.00" << endl
-		<< "10. Radeon RX 7900 XT – $580.00" << endl
+		<< "AMD GPUs:" << endl
+		<< "7. Radeon RX 7900 XTX – $809.00" << endl
+		<< "8. Radeon RX 7800 XT – $593.00" << endl
+		<< "9. Radeon RX 7900 XT – $580.00" << endl << endl;
 }
 void ComputerData::printPSU()
 {
-
+	cout << "PSUs:" << endl
+		<< "1. Corsair RM850x (850W, 80+ Gold, Fully Modular) – $149.99" << endl
+		<< "2. EVGA SuperNOVA 750 G6 (750W, 80+ Gold, Fully Modular) – $129.99" << endl
+		<< "3. Seasonic PRIME TX-1000 (1000W, 80+ Titanium, Fully Modular) – $689.00" << endl
+		<< "4. Cooler Master MWE Gold 750 V2 (750W, 80+ Gold, Fully Modular) – $69.99" << endl
+		<< "5. ASUS ROG Thor 1200W Platinum II (1200W, 80+ Platinum, Fully Modular) – $599.00" << endl
+		<< "6. Thermaltake Toughpower GF1 (850W, 80+ Gold, Fully Modular) – $216.50" << endl
+		<< "7. MSI MPG A850G (850W, 80+ Gold, Fully Modular) – $129.99" << endl << endl;
 }
 void ComputerData::printMotherboards()
 {
-
+	cout << "Intel Motherboard Platforms:" << endl
+		<< "1. ASUS ROG Strix Z790-E Gaming WiFi – $399.99" << endl
+		<< "2. MSI MPG Z790 Carbon WiFi – $361.20" << endl
+		<< "3. Gigabyte Z790 AORUS Elite AX – $179.99" << endl
+		<< "4. ASRock Z790 Taichi – $379.99" << endl
+		<< "AMD Motherboard Platforms:" << endl
+		<< "5. MSI MAG B650 Tomahawk WiFi – $179.99" << endl
+		<< "6. ASUS TUF Gaming X670E-Plus WiFi – $209.99" << endl
+		<< "7. ASRock B650E Steel Legend WiFi – $198.99" << endl
+		<< "8. Gigabyte B550 AORUS Elite – $188.42" << endl << endl;
 }
 void ComputerData::printStorage()
 {
+	cout << "Hard Disk Drives:" << endl
+		<< "1. Seagate Barracuda 2TB HDD (7200 RPM) – $64.99" << endl
+		<< "2. Toshiba X300 4TB HDD (7200 RPM) – $137.13" << endl
+		<< "3. Western Digital Blue 1TB HDD (7200 RPM) – $42.95" << endl
+		<< "Solid State Drives:" << endl
+		<< "4. Samsung 980 Pro 1TB NVMe SSD – $99.99" << endl
+		<< "5. WD Black SN850X 1TB NVMe SSD – $109.99" << endl
+		<< "6. Crucial P5 Plus 1TB NVMe SSD – $139.95" << endl
+		<< "7. Kingston KC3000 1TB NVMe SSD – $132.11" << endl
+		<< "8. Sabrent Rocket 4 Plus 2TB NVMe SSD – $209.99" << endl << endl;
 
 }
 void ComputerData::printCordsAndWires()
 {
-
+	cout << "" << endl
+		<< "" << endl
+		<< "" << endl
+		<< "" << endl
+		<< "" << endl
+		<< "" << endl
+		<< "" << endl
+		<< "" << endl << endl;
 }
 void ComputerData::printCart(int index) const
 {
