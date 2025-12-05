@@ -125,9 +125,9 @@ public:
 	float cpuPrice[10]{ 499.99, 334.99, 204.99, 131.82, 137.99, 501.00, 374.00, 299.00, 204.00, 146.99 };
 	float gpuPrice[8]{ 3499.00, 1779.00, 899.00, 322.00, 283.00, 809.00, 593.00, 580.00 };
 	float psuPrice[7]{ 149.99, 129.99, 689.00, 69.99, 599.00, 216.50, 129.99 };
-	float mbPrice[8]{ 399.99, 361.20, 179.99, 379.99, 179.99, 209.99, 198.99, 188.42 };
-	float storagePrice[8]{ 64.99, 137.13, 42.95, 99.99, 109.99, 139.95, 132.11, 209.99 };
-	float wireAndCordPrice[8]{ 8.99, 7.59, 12.99, 6.99, 9.89, 12.79, 8.49, 12.29 };
+	float mbPrice[8]{ 399.99, 361.20, 179.99, 379.99, 179.99, 209.99, 198.99, 188.42};
+	float storagePrice[8]{ 64.99, 137.13, 42.95, 99.99, 109.99, 139.95, 132.11, 209.99};
+	float wireAndCordPrice[8]{8.99, 7.59, 12.99, 6.99, 9.89, 12.79, 8.49, 12.29};
 
 };
 int main() 
@@ -139,7 +139,12 @@ int main()
 	int totalNumParts = 0; 
 	string filename;
 	string filePath;
-
+	bool ramAdded = false;
+	bool cpuAdded = false;
+	bool gpuAdded = false;
+	bool psuAdded = false;
+	bool mbAdded = false;
+	bool storageAdded = false;
 	int option;
 	bool breakLoop = false;
 	while (breakLoop == false)
@@ -356,13 +361,14 @@ int main()
 				else if (partChoice == 8) //Cart
 				{
 					cout << endl << "Items in cart:" << endl;
-					float sum = 0.00;
 					if (totalNumParts > 0)
 					{
 						for (int i = 0; i < totalNumParts; i++)
 						{
 							CD.printCart(i);
 						}
+						cout << "Total price: $";
+						cout << fixed << setprecision(2) << CD.findSum(totalNumParts) << endl;
 					}
 					else
 					{
@@ -375,6 +381,11 @@ int main()
 					cout << "Would you like to view your build before proceeding to checkout? y/n" << endl;
 					cin >> yesOrNo;
 					cout << yesOrNo << endl;
+					while (yesOrNo != 'y' && yesOrNo != 'Y' && yesOrNo != 'n' && yesOrNo != 'N')
+					{
+						cout << "Invalid choice try again" << endl;
+						cin >> yesOrNo;
+					}
 					if (yesOrNo == 'y' || yesOrNo == 'Y')
 					{
 						cout << endl << "Items in cart:" << endl;
@@ -385,6 +396,10 @@ int main()
 								CD.printCart(i);
 							}
 						}
+					}
+					else
+					{
+						cout << "Continuing" << endl;
 					}
 					cout << "Total price: $";
 					cout << fixed << setprecision(2) << CD.findSum(totalNumParts) << endl;
@@ -398,7 +413,20 @@ int main()
 					if (card >= 100000000000 && card < 1000000000000 && cvv > 0 && cvv < 1000)
 					{
 						cout << "Thank you for your purchase! Would you like to save a file of your purchase? y/n" << endl;
-						CD.purchaseToFile(totalNumParts);
+						char yesOrNo;
+						cin >> yesOrNo;
+						while (yesOrNo != 'y' && yesOrNo != 'Y' && yesOrNo != 'n' && yesOrNo != 'N')
+						{
+							cout << "Invalid choice try again" << endl;
+							cin >> yesOrNo;
+						}
+						if (yesOrNo == 'y' || yesOrNo == 'Y')
+						{
+							CD.purchaseToFile(totalNumParts);
+							cout << "Purchase complete." << endl;
+						}
+						else
+							cout << "Purchase complete." << endl;
 						breakLoop = true;
 						return 0;
 					}
@@ -427,14 +455,39 @@ int main()
 		else if (option == 2) //Build root choice **************************
 		{
 			int partChoice;
+
 			cout << "Type number of which part(s)/action you would like to select:" << endl;
 			cout << "1. RAM sticks (Random Access Memory)" << endl << "2. CPU (Central Processing Unit)"
 				<< endl << "3. GPU (Graphics Processing Unit)" << endl << "4. PSU (Power Supply Unit)"
-				<< endl << "4. Motherboards" << endl << "5. Storage Devices" << endl << "6. Computer Fans"
-				<< endl  << endl << "7. View current build" << endl << "8. To proceed to checkout"
+				<< endl << "5. Motherboards" << endl << "6. Storage Devices" << endl << endl 
+				<< "7. View current build" << endl << "8. To proceed to checkout"
 				<< endl << "0. To cancel build and return to menu" << endl;
 			cout << "You will need to have selected a required amount of parts to be able to proceed to checkout." << endl
-				<<" A free case will be provided with your purchase. The base number of required wires/cords will be added at a flat fee. " << endl;
+				<< " A free case will be provided with your purchase. The base number of required wires/cords will be added at a flat fee." << endl;
+			if(ramAdded == false)
+			{
+				cout << "RAM required" << endl;
+			}
+			if (cpuAdded == false)
+			{
+				cout << "CPU required" << endl;
+			}
+			if (gpuAdded == false)
+			{
+				cout << "GPU required" << endl;
+			}
+			if (psuAdded == false)
+			{
+				cout << "PSU required" << endl;
+			}
+			if (mbAdded == false)
+			{
+				cout << "Montherboard required" << endl;
+			}
+			if (storageAdded == false)
+			{
+				cout << "Storage required" << endl;
+			}
 			cin >> partChoice;
 			while (true)
 			{
@@ -458,28 +511,159 @@ int main()
 				if (partChoice == 1) // RAM sticks
 				{
 					CD.printRam();
+					cout << "Enter item number: " << endl;
+					int indexChoice;
+					cin >> indexChoice;
+					if (indexChoice == 0) break;
+					indexChoice -= 1;
+					string itemName = CD.ramNames[indexChoice];
+					float costOfItem = CD.ramPrice[indexChoice];
+					if (itemName == CD.ramNames[indexChoice] && costOfItem == CD.ramPrice[indexChoice] && totalNumParts < ITEM_LIMIT) {
+						int itemAmount;
+						cout << "How many of this item would you like to order?" << endl;
+						cin >> itemAmount;
+						CD.getItemName(itemName, totalNumParts);
+						CD.getItemCost(costOfItem, totalNumParts);
+						CD.getNumItem(itemAmount, totalNumParts);
+						itemAmount--;
+						totalNumParts++;
+						ramAdded = true;
+					}
+					else
+					{
+						cout << "Invalid choice" << endl;
+					}
 				}
 				else if (partChoice == 2) // CPUs
 				{
 					CD.printCPU();
+					cout << "Enter item number: " << endl;
+					int indexChoice;
+					cin >> indexChoice;
+					if (indexChoice == 0) break;
+					indexChoice -= 1;
+					string itemName = CD.cpuNames[indexChoice];
+					float costOfItem = CD.cpuPrice[indexChoice];
+					if (itemName == CD.cpuNames[indexChoice] && costOfItem == CD.cpuPrice[indexChoice] && totalNumParts < ITEM_LIMIT) {
+						int itemAmount;
+						cout << "How many of this item would you like to order?" << endl;
+						cin >> itemAmount;
+						CD.getItemName(itemName, totalNumParts);
+						CD.getItemCost(costOfItem, totalNumParts);
+						CD.getNumItem(itemAmount, totalNumParts);
+						totalNumParts++;
+						cpuAdded = true;
+					}
+					else
+					{
+						cout << "Invalid choice" << endl;
+					}
 				}
 				else if (partChoice == 3) // GPUs
 				{
 					CD.printGPU();
+					cout << "Enter item number: " << endl;
+					int indexChoice;
+					cin >> indexChoice;
+					if (indexChoice == 0) break;
+					indexChoice -= 1;
+					string itemName = CD.gpuNames[indexChoice];
+					float costOfItem = CD.gpuPrice[indexChoice];
+					if (itemName == CD.gpuNames[indexChoice] && costOfItem == CD.gpuPrice[indexChoice] && totalNumParts < ITEM_LIMIT) {
+						int itemAmount;
+						cout << "How many of this item would you like to order?" << endl;
+						cin >> itemAmount;
+						CD.getItemName(itemName, totalNumParts);
+						CD.getItemCost(costOfItem, totalNumParts);
+						CD.getNumItem(itemAmount, totalNumParts);
+						totalNumParts++;
+						cout << totalNumParts << endl;
+						gpuAdded = true;
+					}
+					else
+					{
+						cout << "Invalid choice" << endl;
+					}
 				}
 				else if (partChoice == 4)// PSUs
 				{
 					CD.printPSU();
+					cout << "Enter item number: " << endl;
+					int indexChoice;
+					cin >> indexChoice;
+					if (indexChoice == 0) break;
+					indexChoice -= 1;
+					string itemName = CD.psuNames[indexChoice];
+					float costOfItem = CD.psuPrice[indexChoice];
+					if (itemName == CD.psuNames[indexChoice] && costOfItem == CD.psuPrice[indexChoice] && totalNumParts < ITEM_LIMIT) {
+						int itemAmount;
+						cout << "How many of this item would you like to order?" << endl;
+						cin >> itemAmount;
+						CD.getItemName(itemName, totalNumParts);
+						CD.getItemCost(costOfItem, totalNumParts);
+						CD.getNumItem(itemAmount, totalNumParts);
+						totalNumParts++;
+						cout << totalNumParts << endl;
+						psuAdded = true;
+					}
+					else
+					{
+						cout << "Invalid choice" << endl;
+					}
 				}
 				else if (partChoice == 5) // Motherboards
 				{
 					CD.printMotherboards();
+					cout << "Enter item number: " << endl;
+					int indexChoice;
+					cin >> indexChoice;
+					if (indexChoice == 0) break;
+					indexChoice -= 1;
+					string itemName = CD.mbNames[indexChoice];
+					float costOfItem = CD.mbPrice[indexChoice];
+					if (itemName == CD.mbNames[indexChoice] && costOfItem == CD.mbPrice[indexChoice] && totalNumParts < ITEM_LIMIT) {
+						int itemAmount;
+						cout << "How many of this item would you like to order?" << endl;
+						cin >> itemAmount;
+						CD.getItemName(itemName, totalNumParts);
+						CD.getItemCost(costOfItem, totalNumParts);
+						CD.getNumItem(itemAmount, totalNumParts);
+						totalNumParts++;
+						cout << totalNumParts << endl;
+						mbAdded = true;
+					}
+					else
+					{
+						cout << "Invalid choice" << endl;
+					}
 				}
 				else if (partChoice == 6) // Storage devices
 				{
 					CD.printStorage();
+					cout << "Enter item number: " << endl;
+					int indexChoice;
+					cin >> indexChoice;
+					if (indexChoice == 0) break;
+					indexChoice -= 1;
+					string itemName = CD.storageNames[indexChoice];
+					float costOfItem = CD.storagePrice[indexChoice];
+					if (itemName == CD.storageNames[indexChoice] && costOfItem == CD.storagePrice[indexChoice] && totalNumParts < ITEM_LIMIT) {
+						int itemAmount;
+						cout << "How many of this item would you like to order?" << endl;
+						cin >> itemAmount;
+						CD.getItemName(itemName, totalNumParts);
+						CD.getItemCost(costOfItem, totalNumParts);
+						CD.getNumItem(itemAmount, totalNumParts);
+						totalNumParts++;
+						cout << totalNumParts << endl;
+						storageAdded = true;
+					}
+					else
+					{
+						cout << "Invalid choice" << endl;
+					}
 				}
-				else if (partChoice == 7) // Cords/Wires
+				else if (partChoice == 7) //Current build
 				{
 					cout << endl << "Current build:" << endl;
 					if (totalNumParts > 0)
@@ -488,70 +672,105 @@ int main()
 						{
 							CD.printCart(i);
 						}
+						cout << "Total cost: $" << CD.findSum(totalNumParts) << endl;
 					}
 					else
 					{
-						cout << endl << "No items in cart" << endl << endl;
+						cout << endl << "No items in added to build" << endl << endl;
 					}
-				
+
 				}
 				else if (partChoice == 8) // Checkout
 				{
-					
-						/* This if will be used to prevent user from proceeding to checkout in they dont select all required parts
-						if ()
-						{
-					char yesOrNo;
-					cout << "Would you like to view your build before proceeding to checkout? y/n" << endl;
-					cin >> yesOrNo;
-					
-					if (yesOrNo == 'y' || yesOrNo == 'Y')
+
+					//This if will be used to prevent user from proceeding to checkout in they dont select all required parts
+					if (ramAdded == true && cpuAdded == true && gpuAdded == true && psuAdded == true && mbAdded == true && storageAdded == true)
 					{
-					cout << endl << "Items in build:" << endl;
-					if (totalNumParts > 0)
-					{
-						for (int i = 0; i < totalNumParts; i++)
+						char yesOrNo;
+						cout << "Would you like to view your build before proceeding to checkout? y/n" << endl;
+						cin >> yesOrNo;
+
+						while (yesOrNo != 'y' && yesOrNo != 'Y' && yesOrNo != 'n' && yesOrNo != 'N')
 						{
-							CD.printCart(i);
+							cout << "Invalid choice try again" << endl;
+							cin >> yesOrNo;
 						}
-					}
-					else
-					{
-						cout << endl << "No items in cart" << endl << endl;
-					}
-					}
-					else if (yesOrNo == 'n' || yesOrNo == 'N')
-					{
-						
+						if (yesOrNo == 'y' || yesOrNo == 'Y')
+						{
+							cout << endl << "Items in build:" << endl;
+
+							for (int i = 0; i < totalNumParts; i++)
+							{
+								CD.printCart(i);
+							}
+
+						}
 						else
 						{
-						cout << "Not enough parts selected" << endl;
+							cout << "Continuing" << endl;
+						}
+						cout << "Total price: $";
+						cout << fixed << setprecision(2) << CD.findSum(totalNumParts) << endl;
+						long int card;
+						int cvv;
+						cout << "Please enter your 12 digit card number. Or enter 0 to go back to menu." << endl;
+						cin >> card;
+						if (card == 0) break;
+						cout << "Please enter your 3 digit cvv" << endl;
+						cin >> cvv;
+						if (card >= 100000000000 && card < 1000000000000 && cvv > 0 && cvv < 1000)
+						{
+							cout << "Thank you for your purchase! Would you like to save a file of your purchase? y/n" << endl;
+							char yesOrNo;
+							cin >> yesOrNo;
+							while (yesOrNo != 'y' && yesOrNo != 'Y' && yesOrNo != 'n' && yesOrNo != 'N')
+							{
+								cout << "Invalid choice try again" << endl;
+								cin >> yesOrNo;
+							}
+							if (yesOrNo == 'y' || yesOrNo == 'Y')
+							{
+								CD.purchaseToFile(totalNumParts);
+								cout << "Purchase complete." << endl;
+							}
+							else
+								cout << "Purchase complete." << endl;
+
+
+							breakLoop = true;
+						}
+						else
+						{
+							cout << endl << "Not enough items chosen" << endl;
+							break;
 						}
 					}
 					else
 					{
-						cout << "Not y or n" << endl;
-						breakLoop = false;
-						break;
+						cout << "Invalid choice! Try again.\n";
 					}
-						*/
-					
-					breakLoop = true;
-					break; //To do add a method to checkout built pc. Temp break used
+					cout << "Type number of which part(s)/action you would like to select:" << endl;
+					cout << "1. RAM sticks (Random Access Memory)" << endl << "2. CPU (Central Processing Unit)"
+						<< endl << "3. GPU (Graphics Processing Unit)" << endl << "4. PSU (Power Supply Unit)"
+						<< endl << "4. Motherboards" << endl << "5. Storage Devices" << endl << "6. Computer Fans"
+						<< endl << "7. Cords/Wires" << endl << "8. View current build" << endl << "9. To proceed to checkout"
+						<< endl << "0. To cancel build and return to menu" << endl;
+					cout << "You can choose a max amount of 30 parts" << endl;
+					cout << totalNumParts << " parts selected" << endl;
+					//to do add a way to display which parts are still required to check out
+					cin >> partChoice;
 				}
 				else
 				{
-					cout << "Invalid choice! Try again.\n";
+					cout << "Invalid choice" << endl;
 				}
 				cout << "Type number of which part(s)/action you would like to select:" << endl;
 				cout << "1. RAM sticks (Random Access Memory)" << endl << "2. CPU (Central Processing Unit)"
 					<< endl << "3. GPU (Graphics Processing Unit)" << endl << "4. PSU (Power Supply Unit)"
 					<< endl << "4. Motherboards" << endl << "5. Storage Devices" << endl << "6. Computer Fans"
-					<< endl << "7. Cords/Wires" << endl << "8. View current build" << endl << "9. To proceed to checkout"
+					<< endl << endl << "7. View current build" << endl << "8. To proceed to checkout"
 					<< endl << "0. To cancel build and return to menu" << endl;
-				cout << "You can choose a max amount of 30 parts" << endl;
-				cout << totalNumParts << " parts selected" << endl;
-				//to do add a way to display which parts are still required to check out
+				cout << "You will need to have selected a required amount of parts to be able to proceed to checkout." << endl;
 				cin >> partChoice;
 			}
 		}
@@ -572,12 +791,12 @@ int main()
 				CD.getNumItem(amount, totalNumParts);
 				totalNumParts++;
 			}
-			cout << "Total price: $";
-			cout << fixed << setprecision(2) << CD.findSum(totalNumParts) << endl;
 			cout << "Item Name-Cost-Number of item ordered/in build" << endl;
 			for (int i = 0; i < totalNumParts; i++) {
 				CD.printFileItems(i);
 			}
+			cout << "Total price: $";
+			cout << fixed << setprecision(2) << CD.findSum(totalNumParts) << endl;
 			breakLoop = true;
 			infile.close();
 		}
@@ -735,7 +954,11 @@ void ComputerData::purchaseToFile(int index)
 	cout << "Enter a file location to save your file to (example: \"C: / Users / YourName / Documents /\")" << endl;
 	ofstream saveFile;
 	saveFile.open(filePath + fileName);
-
+	if(!saveFile)
+	{
+		cout << "Error saving file" << endl;
+		return;
+	}
 	for (int i = 0; i < index; i++)
 	{
 		saveFile << index + 1 << ". " << partName[index] << " x" << numberUsed[index] << endl;
@@ -746,6 +969,7 @@ void ComputerData::purchaseToFile(int index)
 	cout << fixed << setprecision(2) << findSum(index) << endl;
 	saveFile << endl;
 	saveFile.close();
+	cout << "File saving complete." << endl;
 }
 float ComputerData::findSum(int index)
 {
