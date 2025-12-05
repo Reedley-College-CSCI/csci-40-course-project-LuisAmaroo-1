@@ -28,7 +28,7 @@ I had not created a test log.
 - **Include a link to your required video demonstration** showcasing how the project works (**3-7 minutes**). 
     Make sure it shareable without approval needed.
 
----
+Walkthrough link: https://youtu.be/iBPPHMne4bc?si=hQ-QDAXddStk5DLg 
 
 ## 5. Challenges and Lessons Learned
 - What challenges did you encounter while working on this project?  
