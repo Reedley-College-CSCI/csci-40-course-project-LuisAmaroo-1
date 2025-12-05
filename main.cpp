@@ -425,6 +425,7 @@ int main()
 						{
 							CD.purchaseToFile(totalNumParts);
 							cout << "Purchase complete." << endl;
+							return 0;
 						}
 						else
 							cout << "Purchase complete." << endl;
@@ -465,7 +466,8 @@ int main()
 				<< endl << "0. To cancel build and return to menu" << endl;
 			cout << "You will need to have selected a required amount of parts to be able to proceed to checkout." << endl
 				 << "Each item can be chosen only once however storage devices can be chosen up to 3 times. Cancel to reset choices." << endl 
-				<< " A free case will be provided with your purchase. The base number of required wires/cords will be added at a flat fee." << endl;
+				<< " A free case will be provided with your purchase. The base number of required wires/cords will be added free." 
+				<< endl;
 			if(ramAdded == false)
 			{
 				cout << "RAM required" << endl;
@@ -697,7 +699,7 @@ int main()
 						{
 							CD.printCart(i);
 						}
-						cout << "Total cost: $" << CD.findSum(totalNumParts) << endl;
+						cout << "Total cost without added fees: $" << CD.findSum(totalNumParts) << endl;
 					}
 					else
 					{
@@ -728,14 +730,14 @@ int main()
 							{
 								CD.printCart(i);
 							}
-
+							cout << endl;
 						}
 						else
 						{
 							cout << "Continuing" << endl;
 						}
 						cout << "Total price: $";
-						cout << fixed << setprecision(2) << CD.findSum(totalNumParts) << endl;
+						cout << fixed << setprecision(2) << CD.findSum(totalNumParts)+(CD.findSum(totalNumParts)*0.0725) + 50 << endl;
 						long long card;
 						int cvv;
 						cout << "Please enter your 12 digit card number. Or enter 0 to go back to menu." << endl;
@@ -1010,7 +1012,7 @@ void ComputerData::purchaseToFile(int index)
 	}
 	for (int i = 0; i < index; i++)
 	{
-		saveFile << index + 1 << ". " << partName[index] << " x" << numberUsed[index] << endl;
+		saveFile << index + 1 << ". " << partName[i] << " x" << numberUsed[i] << endl;
 	}
 	saveFile << "*******************************************************************************************" << endl;
 	saveFile << "Item Name-Cost-Number ordered" << endl;
